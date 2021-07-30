@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Psi.Imaging.Windows</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Psi.Imaging.DepthImageCompressor">
+            <summary>
+            Implements a compressor used by the serialization layer for compressing streams
+            of depth images in a generic fashion. This object should not be called directly,
+            but instead is used by the <see cref="T:Microsoft.Psi.Imaging.DepthImage.CustomSerializer"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.DepthImageCompressor.#ctor(Microsoft.Psi.Imaging.DepthCompressionMethod)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Psi.Imaging.DepthImageCompressor"/> class.
+            </summary>
+            <param name="depthCompressionMethod">The depth image compression method to be used.</param>
+        </member>
+        <member name="P:Microsoft.Psi.Imaging.DepthImageCompressor.DepthCompressionMethod">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.DepthImageCompressor.Serialize(Microsoft.Psi.Common.BufferWriter,Microsoft.Psi.Imaging.DepthImage,Microsoft.Psi.Serialization.SerializationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.DepthImageCompressor.Deserialize(Microsoft.Psi.Common.BufferReader,Microsoft.Psi.Imaging.DepthImage@,Microsoft.Psi.Serialization.SerializationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.DepthImageFromStreamDecoder">
+            <summary>
+            Implements a depth image decoder.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.DepthImageFromStreamDecoder.DecodeFromStream(System.IO.Stream,Microsoft.Psi.Imaging.DepthImage)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.DepthImageToPngStreamEncoder">
+            <summary>
+            Implements a depth image encoder for PNG format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.DepthImageToPngStreamEncoder.EncodeToStream(Microsoft.Psi.Imaging.DepthImage,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.ImageCompressor">
+            <summary>
+            Implements a compressor used by the serialization layer for compressing streams
+            of images in a generic fashion. This object should not be called directly, but
+            instead is used by the <see cref="T:Microsoft.Psi.Imaging.Image.CustomSerializer"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageCompressor.#ctor(Microsoft.Psi.Imaging.CompressionMethod)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Psi.Imaging.ImageCompressor"/> class.
+            </summary>
+            <param name="compressionMethod">The image compression method to be used.</param>
+        </member>
+        <member name="P:Microsoft.Psi.Imaging.ImageCompressor.CompressionMethod">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageCompressor.Serialize(Microsoft.Psi.Common.BufferWriter,Microsoft.Psi.Imaging.Image,Microsoft.Psi.Serialization.SerializationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageCompressor.Deserialize(Microsoft.Psi.Common.BufferReader,Microsoft.Psi.Imaging.Image@,Microsoft.Psi.Serialization.SerializationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.ImageFromStreamDecoder">
+            <summary>
+            Implements an image decoder.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageFromStreamDecoder.DecodeFromStream(System.IO.Stream,Microsoft.Psi.Imaging.Image)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageFromStreamDecoder.GetPixelFormat(System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.ImageToJpegStreamEncoder">
+            <summary>
+            Implements an image encoder for JPEG format.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Psi.Imaging.ImageToJpegStreamEncoder.QualityLevel">
+            <summary>
+            Gets or sets JPEG image quality (0-100).
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageToJpegStreamEncoder.EncodeToStream(Microsoft.Psi.Imaging.Image,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.ImageToPngStreamEncoder">
+            <summary>
+            Implements an image encoder for PNG format.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImageToPngStreamEncoder.EncodeToStream(Microsoft.Psi.Imaging.Image,System.IO.Stream)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.ImagingOperators">
+            <summary>
+            Implements stream operator methods for Imaging.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImagingOperators.EncodeJpeg(Microsoft.Psi.IProducer{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.Image}},System.Int32,Microsoft.Psi.DeliveryPolicy{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.Image}})">
+            <summary>
+            Encodes an image to a JPEG format.
+            </summary>
+            <param name="source">A producer of images to encode.</param>
+            <param name="quality">JPEG quality to use.</param>
+            <param name="deliveryPolicy">An optional delivery policy.</param>
+            <returns>A producer that generates the JPEG images.</returns>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImagingOperators.EncodePng(Microsoft.Psi.IProducer{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.Image}},Microsoft.Psi.DeliveryPolicy{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.Image}})">
+            <summary>
+            Encodes an image to a PNG format.
+            </summary>
+            <param name="source">A producer of images to encoder.</param>
+            <param name="deliveryPolicy">An optional delivery policy.</param>
+            <returns>A producer that generates the PNG images.</returns>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImagingOperators.Decode(Microsoft.Psi.IProducer{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.EncodedImage}},Microsoft.Psi.DeliveryPolicy{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.EncodedImage}})">
+            <summary>
+            Decodes an encoded image.
+            </summary>
+            <param name="source">A producer of encoded images to decode.</param>
+            <param name="deliveryPolicy">An optional delivery policy.</param>
+            <returns>A producer that generates the decoded images.</returns>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImagingOperators.EncodePng(Microsoft.Psi.IProducer{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.DepthImage}},Microsoft.Psi.DeliveryPolicy{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.DepthImage}})">
+            <summary>
+            Encodes a depth image to a PNG format.
+            </summary>
+            <param name="source">A producer of depth images to encode.</param>
+            <param name="deliveryPolicy">An optional delivery policy.</param>
+            <returns>A producer that generates the PNG-encoded depth images.</returns>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.ImagingOperators.Decode(Microsoft.Psi.IProducer{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.EncodedDepthImage}},Microsoft.Psi.DeliveryPolicy{Microsoft.Psi.Shared{Microsoft.Psi.Imaging.EncodedDepthImage}})">
+            <summary>
+            Decodes an encoded depth image.
+            </summary>
+            <param name="source">A producer of encoded depth images to decode.</param>
+            <param name="deliveryPolicy">An optional delivery policy.</param>
+            <returns>A producer that generates the decoded depth images.</returns>
+        </member>
+        <member name="T:Microsoft.Psi.Imaging.PixelFormatHelpers">
+            <summary>
+            Implements helper functions for manipulating <see cref="T:Microsoft.Psi.Imaging.PixelFormat"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.PixelFormatHelpers.ToWindowsMediaPixelFormat(Microsoft.Psi.Imaging.PixelFormat)">
+            <summary>
+            Converts from \psi imaging pixel format to Windows.Media pixel format.
+            </summary>
+            <param name="pixelFormat">The \psi imaging pixel format.</param>
+            <returns>The corresponding Windows.Media pixel format.</returns>
+        </member>
+        <member name="M:Microsoft.Psi.Imaging.PixelFormatHelpers.ToPixelFormat(System.Windows.Media.PixelFormat)">
+            <summary>
+            Converts Windows.Media pixel format to \psi imaging pixel format.
+            </summary>
+            <param name="mediaPixelFormat">The Windows.Media pixel format.</param>
+            <returns>The corresponding \psi imaging pixel format.</returns>
+        </member>
+    </members>
+</doc>
