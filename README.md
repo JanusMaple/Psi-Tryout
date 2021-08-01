@@ -10,7 +10,9 @@ Nu-Packages (Prerelease):
 
 ## Prerequisites
 Visual Studio 2019 (Recommended)
-.NET Framework 3.7.2
+
+.NET Framework 3.7.2 (Recommended)
+
 Windows x64 (Platform taget should be x64)
 
 ## Function
