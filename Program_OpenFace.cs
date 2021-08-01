@@ -1,4 +1,8 @@
-﻿using System;
+/*
+Use external executable OpenFace binaries to process images captured by Psi pipeline
+*/
+
+using System;
 using System.Diagnostics;
 using Microsoft.Psi;
 using Microsoft.Psi.Audio;
