@@ -1,4 +1,8 @@
-﻿using System;
+/*
+A demo program showing how to use Psi pipeline record and save videos
+*/
+
+using System;
 using Microsoft.Psi;
 using Microsoft.Psi.Audio;
 using Microsoft.Psi.Imaging;
